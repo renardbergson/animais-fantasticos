@@ -270,3 +270,56 @@ img {
     left: 0;
   }
 }
+
+.js .js-accordion dt:hover { /* se o JS estiver ativado */
+  cursor: pointer;
+}
+
+.js .js-accordion dt::after { /* se o JS estiver ativado */
+  content: "↓";
+  margin-left: 10px;
+}
+
+.js .js-accordion dt.active::after { /* se o JS estiver ativado */
+  content: "↑";
+  margin-left: 10px;
+  animation: arrowAnimation .3s forwards ease;
+}
+
+.js .js-accordion dd { /* se o JS estiver ativado */
+  display: none;
+}
+
+.js-accordion dd.active {
+  display: block;
+  animation: accordionSlideDown 1s forwards ease;
+}
+
+@keyframes accordionSlideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+@keyframes arrowAnimation {
+  25% {
+    opacity: 0.5;
+    content: "↙";
+  }
+  50% {
+    opacity: 0.3;
+    content: "←";
+  }
+  75% {
+    opacity: 0.5;
+    content: "↖";
+  }
+  100% {
+    opacity: 1;
+  }
+}
