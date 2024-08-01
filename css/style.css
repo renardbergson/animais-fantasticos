@@ -74,6 +74,12 @@ body {
   overflow-y: scroll;
 }
 
+.js .animais-lista li:hover { /* se o JS estiver habilitado */
+  cursor: pointer;
+  border: 2px solid white;
+  transition: .1s;
+}
+
 /* scroll-bar */
 .animais-lista::-webkit-scrollbar {
   width: 15px;
@@ -240,5 +246,27 @@ img {
 
   .footer {
     margin-bottom: 0;
+  }
+}
+
+/* Elementos controlados por javascript */
+.js .js-animalsDescription section { /* se o JS estiver ativado */
+  display: none;
+}
+
+.js-animalsDescription section.active {
+  display: block;
+  position: relative;
+  animation: showAnimalDescription .8s forwards ease;
+}
+
+@keyframes showAnimalDescription {
+  from {
+    opacity: 0;
+    left: -30px;
+  } 
+  to {
+    opacity: 1;
+    left: 0;
   }
 }
