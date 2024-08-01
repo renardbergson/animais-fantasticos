@@ -1,9 +1,10 @@
 const animalsMenu = document.querySelectorAll(".js-animalsMenu li");
 const animalsDescription = document.querySelectorAll(".js-animalsDescription section");
 const accordionList = document.querySelectorAll(".js-accordion dt");
+const internalLinks = document.querySelectorAll(".js-menu a[href^='#']");
 const className = "active";
 
-function showAnimalDescrition() {
+function handleAnimalDescrition() {
   if (animalsMenu.length && animalsDescription.length) {
     animalsDescription[0].classList.add("active");
     
@@ -36,5 +37,32 @@ function handleAccordion() {
   }
 }
 
-showAnimalDescrition();
+function smoothScroll() {
+  if (internalLinks.length) {
+    internalLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute("href");
+        const section = document.querySelector(href);
+        let topo = section.offsetTop;
+  
+        window.scrollTo({
+          top: topo + 70,
+          behavior: "smooth",
+        });
+  
+        // ALTERNATIVA
+        /*  
+          section.scrollIntoView({
+            block: "start",
+            behavior: "smooth"
+          });
+        */
+      })
+    })
+  }
+}
+
+handleAnimalDescrition();
 handleAccordion();
+smoothScroll();
