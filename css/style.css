@@ -323,3 +323,15 @@ img {
     opacity: 1;
   }
 }
+
+.js .js-scroll { /* se o JS estiver ativado */
+  opacity: 0;
+  position: relative;
+  left: -30px;
+  transition: .8s;
+}
+
+.js-scroll.active {
+  left: 0;  
+  opacity: 1;
+}
