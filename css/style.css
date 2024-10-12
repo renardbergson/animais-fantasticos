@@ -250,17 +250,35 @@ img {
 }
 
 /* Elementos controlados por javascript */
-.js .js-animalsDescription section { /* se o JS estiver ativado */
+.js [data-element="animals-description"] section { /* se o JS estiver ativado */
   display: none;
 }
 
-.js-animalsDescription section.active {
+[data-element="animals-description"] section.active {
   display: block;
   position: relative;
-  animation: showAnimalDescription .8s forwards ease;
 }
 
-@keyframes showAnimalDescription {
+[data-element="animals-description"] section.active.show-down {
+  animation: show-down .8s forwards ease;
+}
+
+[data-element="animals-description"] section.active.show-right {
+  animation: show-right .8s forwards ease;
+}
+
+@keyframes show-down {
+  from {
+    opacity: 0;
+    top: -30px;
+  } 
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes show-right {
   from {
     opacity: 0;
     left: -30px;
@@ -271,26 +289,26 @@ img {
   }
 }
 
-.js .js-accordion dt:hover { /* se o JS estiver ativado */
+.js [data-anime="accordion"] dt:hover { /* se o JS estiver ativado */
   cursor: pointer;
 }
 
-.js .js-accordion dt::after { /* se o JS estiver ativado */
+.js [data-anime="accordion"] dt::after { /* se o JS estiver ativado */
   content: "↓";
   margin-left: 10px;
 }
 
-.js .js-accordion dt.active::after { /* se o JS estiver ativado */
+.js [data-anime="accordion"] dt.active::after { /* se o JS estiver ativado */
   content: "↑";
   margin-left: 10px;
   animation: arrowAnimation .3s forwards ease;
 }
 
-.js .js-accordion dd { /* se o JS estiver ativado */
+.js [data-anime="accordion"] dd { /* se o JS estiver ativado */
   display: none;
 }
 
-.js-accordion dd.active {
+[data-anime="accordion"] dd.active {
   display: block;
   animation: accordionSlideDown 1s forwards ease;
 }
@@ -324,14 +342,14 @@ img {
   }
 }
 
-.js .js-scroll { /* se o JS estiver ativado */
+.js [data-anime="scroll"] { /* se o JS estiver ativado */
   opacity: 0;
   position: relative;
   left: -30px;
   transition: .8s;
 }
 
-.js-scroll.active {
+[data-anime="scroll"].active {
   left: 0;  
   opacity: 1;
 }
