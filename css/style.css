@@ -1,6 +1,7 @@
 @import "./media.css";
 @import "./keyframes.css";
 @import "./modal.css";
+@import "./tooltip.css";
 
 * {
   margin: 0;
